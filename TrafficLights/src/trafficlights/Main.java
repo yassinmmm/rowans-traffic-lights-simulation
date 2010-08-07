@@ -22,6 +22,7 @@ public class Main {
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        Lights lights = new Lights();
 
         while (true) {
             String input = null;
@@ -176,7 +177,7 @@ public class Main {
                     break;
 
                 case 5:
-                    System.out.println("Five");
+                    lights.DrawRoad(h_street, v_street);
                     break;
                 case 6:
                     System.out.println("Six");
