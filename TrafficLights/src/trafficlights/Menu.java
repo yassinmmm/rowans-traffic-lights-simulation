@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author Confucius
  */
-public class Main {
+public class Menu {
 
     private static int h_street = 1;
     private static double h_prob;

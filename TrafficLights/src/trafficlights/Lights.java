@@ -14,7 +14,7 @@ public class Lights {
         
         char[][] RoadArr = new char[hLanes][vLanes];
 
-        
+            
 
         for (int i = 0; i < 26; i++) {
             if (i < 13 || i > (14 + hLanes)) {
