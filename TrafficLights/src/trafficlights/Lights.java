@@ -11,6 +11,11 @@ package trafficlights;
 public class Lights {
 
     public void DrawRoad(int hLanes, int vLanes) {
+        
+        char[][] RoadArr = new char[hLanes][vLanes];
+
+        
+
         for (int i = 0; i < 26; i++) {
             if (i < 13 || i > (14 + hLanes)) {
                 //Prints vertical right boundary
