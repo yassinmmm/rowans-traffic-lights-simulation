@@ -15,7 +15,7 @@ public class Main {
             try {
                Menu.Menu();
             } catch (NumberFormatException nfe) {
-                System.out.println("Please enter a valid digit!");
+                System.out.println("    Please enter a valid digit!");
             }
         }
     }

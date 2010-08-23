@@ -33,20 +33,20 @@ public class Menu {
                 try {
                     number = Integer.parseInt(input);
                 } catch (NumberFormatException nfe) {
-                    System.out.println("Please enter a digit!");
+                    System.out.println("    Please enter a digit!");
                     continue check_valid;
                 }
                 break check_valid;
             }
 
             if (number < 1 || number > 4) {
-                System.out.println("There must be more than 1 lane and less than 4!");
+                System.out.println("    There must be more than 1 lane and less than 4!");
             } else {
                 break set_v;
             }
         }
         v_street = number;
-        System.out.println("Simulation now has " + v_street + " vertical lanes.\n");
+        System.out.println("Simulation now has " + v_street + " vertical lanes.");
     }
 
     public static int getV_street() {
@@ -66,20 +66,20 @@ public class Menu {
                 try {
                     number = Integer.parseInt(input);
                 } catch (NumberFormatException nfe) {
-                    System.out.println("Please enter a digit!");
+                    System.out.println("    Please enter a digit!");
                     continue check_valid;
                 }
                 break check_valid;
             }
 
             if (number < 1 || number > 3) {
-                System.out.println("There must be more than 1 lane and less than 3!");
+                System.out.println("    There must be more than 1 lane and less than 3!");
             } else {
                 break set_h;
             }
         }
         h_street = number;
-        System.out.println("Simulation now has " + h_street + " horizontal lanes.\n");
+        System.out.println("Simulation now has " + h_street + " horizontal lanes.");
     }
 
     public static int getH_street() {
@@ -99,20 +99,20 @@ public class Menu {
                 try {
                     number = Double.parseDouble(input);
                 } catch (NumberFormatException nfe) {
-                    System.out.println("Please enter a digit!");
+                    System.out.println("    Please enter a digit!");
                     continue check_valid;
                 }
                 break check_valid;
             }
 
             if (number < 0 || number > 1) {
-                System.out.println("Probability must be between 0.0 & 1.0!");
+                System.out.println("    Probability must be between 0.0 & 1.0!");
             } else {
                 break set_h;
             }
         }
         h_prob = number;
-        System.out.println("Cars now have a " + h_prob + " chance of entering the horizontal lanes\n");
+        System.out.println("Cars now have a " + h_prob + " chance of entering the horizontal lanes");
     }
 
     public static double getH_prob() {
@@ -132,20 +132,20 @@ public class Menu {
                 try {
                     number = Double.parseDouble(input);
                 } catch (NumberFormatException nfe) {
-                    System.out.println("Please enter a digit!");
+                    System.out.println("    Please enter a digit!");
                     continue check_valid;
                 }
                 break check_valid;
             }
 
             if (number < 0 || number > 1) {
-                System.out.println("Probability must be between 0.0 & 1.0!");
+                System.out.println("    Probability must be between 0.0 & 1.0!");
             } else {
                 break set_v;
             }
         }
         v_prob = number;
-        System.out.println("Cars now have a " + v_prob + " chance of entering the vertical lanes\n");
+        System.out.println("Cars now have a " + v_prob + " chance of entering the vertical lanes");
     }
 
     public static double getV_prob() {
@@ -159,7 +159,7 @@ public class Menu {
         input = "";
         int number;
         
-        System.out.print("=== MENU ====\n"
+        System.out.print("\n=== MENU ====\n"
                 + "1. Set Number of horizontal lanes (H-street) [min 1, max 3]\n"
                 + "2. Set Number of vertical lanes (V-street) [min 1, max 4]\n"
                 + "3. Set Probability of a car entering H-street [min 0, max 1]\n"
@@ -189,14 +189,14 @@ public class Menu {
                 break;
 
             case 5:
-                lights.DrawRoad();
+                Simulator.DrawRoad();
                 break;
 
             case 6:
                 System.out.println("Six");
                 break;
             default:
-                System.out.println("Invalid Selection");
+                System.out.println("    Invalid Selection");
         }
     }
 }
