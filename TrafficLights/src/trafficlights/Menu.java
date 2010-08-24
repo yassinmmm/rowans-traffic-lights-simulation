@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author Confucius
  */
-public class Menu {
+class Menu {
 
     private static int h_street = 1;
     private static double h_prob;
@@ -155,7 +155,7 @@ public class Menu {
     /**
      * @param args the command line arguments
      */
-    public static void Menu() {
+    static void Menu() {
         input = "";
         int number;
         
