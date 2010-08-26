@@ -37,6 +37,12 @@ public class Simulator {
         return gap;
     }
 
+    public static void MakeCar() {
+        Car newCar = new Car();
+        ExistingIDs[IDindex] = newCar.ID;
+        ++IDindex;
+    }
+
     public static void DrawRoad() {
         //Making setup
         String vGap = vGap();
@@ -44,14 +50,8 @@ public class Simulator {
 
         Car[] VRoadArr = new Car[Menu.getV_street()];
         Car[] HRoadArr = new Car[2 * (20 + Rlength)];
-        Car kia = new Car();
 
-        ExistingIDs[IDindex] = kia.ID;
         Lights trafficLights = new Lights();
-
-        //Placing car
-        HRoadArr[23] = kia;
-        VRoadArr[1] = kia;
 
         final String fill = "                    ";
         final String border = "-------------------";
@@ -90,36 +90,48 @@ public class Simulator {
             System.out.println(fill + '|' + vGap + '|' + fill);
 
         }
-
-        /*
-        for (int i = 0; i < 26; i++) {
-        if (i < 13 || i > (14 + hLanes)) {
-        //Prints vertical right boundary
-        System.out.print("                      |");
-        //Creates vertical lanes then adds the right boundary
-        for (int x = 0; x < vLanes; x++) {
-        System.out.print(" ");
-        }
-
-        System.out.print("|                      \n");
-        } else {
-        //Draws the horizontal boundary's
-        if (i == 13 || i == (14 + hLanes)) {
-        System.out.print("---------------------- ");
-
-        for (int x = 0; x < vLanes; x++) {
-        System.out.print(" ");
-        }
-
-        System.out.println(" ---------------------");
-        } else {
-        //Car positioning here
-        }
-        }
-        }
-         *
-         */
     }
+
+    public static void Simulate() {
+        Random rand = new Random();
+      
+        Double D = Menu.getH_prob() * 100;
+        int R = rand.nextInt(100);
+
+        if (R < D) {
+            System.out.println("Make car");
+            MakeCar();
+        }
+    }
+
+    /*
+    for (int i = 0; i < 26; i++) {
+    if (i < 13 || i > (14 + hLanes)) {
+    //Prints vertical right boundary
+    System.out.print("                      |");
+    //Creates vertical lanes then adds the right boundary
+    for (int x = 0; x < vLanes; x++) {
+    System.out.print(" ");
+    }
+
+    System.out.print("|                      \n");
+    } else {
+    //Draws the horizontal boundary's
+    if (i == 13 || i == (14 + hLanes)) {
+    System.out.print("---------------------- ");
+
+    for (int x = 0; x < vLanes; x++) {
+    System.out.print(" ");
+    }
+
+    System.out.println(" ---------------------");
+    } else {
+    //Car positioning here
+    }
+    }
+    }
+     *
+     */
     /*
     Random rand = new Random();
     Timer time = new Timer();
