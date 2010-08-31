@@ -2,23 +2,18 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package trafficlights;
 
 /**
  *
- * @author jc223892
+ * @author Confucius
  */
-public class Car {
-    private static int index = 0;
-    public int ID;
+public abstract class Car {
 
-    Car() {
-        ++index;
-        this.ID = index;
-    }
-    @Override
-    public String toString() {
-        return "c";
-    }
+    protected int Gridrow;
+    protected int Gridcol;
+    protected int[] loc = new int[2];
+
+    public abstract int[] loc();
+    public abstract boolean checkOnRoad();
 }
