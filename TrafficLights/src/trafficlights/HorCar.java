@@ -11,6 +11,7 @@ import java.util.Random;
  * @author Confucius
  */
 public class HorCar extends Car {
+
     public HorCar(int lane) {
         Gridcol = 0;
 
@@ -22,8 +23,8 @@ public class HorCar extends Car {
     }
 
     public boolean checkOnRoad() {
-        if (Gridrow > Grid.MIDPOINT + SimModel.getHorLanes() ||
-                Gridcol == SimModel.gridSize) {
+        if (Gridrow > Grid.MIDPOINT + SimModel.getHorLanes()
+                || Gridcol == SimModel.gridSize) {
             return false;
         }
         return true;
@@ -33,15 +34,20 @@ public class HorCar extends Car {
         if (Lights.HLight().equals("G")) {                                              // If light is GREEN
             this.moving = "GO";                                                             // GO
             ++Gridcol;
+            return;
         } else {                                                                        // Else
             if (Gridcol <= Grid.MIDPOINT - 1) {                                             // If before intersection
-                if (Grid.getGrid()[Gridrow][Gridcol + 1] instanceof Car                     // If there is a STOPPED car
-                        && Grid.getGrid()[Gridrow][Gridcol + 1].equals("STOPPED")
-                        || Gridcol == Grid.MIDPOINT - 1) {                                      // or at the intersection
-                    this.moving = "STOPPED";                                                        // STOP
-                } else {                                                                        // Else
-                    this.moving = "GO";                                                             // GO
-                    ++Gridcol;
+                if (Gridcol == Grid.MIDPOINT - 1) {
+                    this.moving = "STOPPED";
+                } else if (Grid.getGrid()[Gridrow][Gridcol+1] instanceof Car // If there is a STOPPED car
+                        && Grid.getGrid()[Gridrow][Gridcol+1].equals("STOPPED")) {
+                    if (!(Grid.getGrid()[++Gridrow][Gridcol] instanceof Car)) {
+                        ++Gridrow;
+                        this.moving = "STOPPED";
+                    } else {
+                        this.moving = "STOPPED";
+                    }
+                    // STOP
                 }
             } else {                                                                        // Else
                 this.moving = "GO";                                                             // GO
