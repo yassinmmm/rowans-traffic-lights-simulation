@@ -11,18 +11,9 @@ import java.util.Random;
  * @author jc223892
  */
 public class VertCar extends Car {
-
-    private static int index = 0;
-    public int ID;
-
-    public VertCar() {
-        ++index;
-        this.ID = index;
-
+    public VertCar(int lane) {
         Gridrow = 0;
 
-        Random rand = new Random();
-        int lane = rand.nextInt(SimModel.getVertLanes());
         setColLoc(lane);
     }
 
@@ -31,10 +22,32 @@ public class VertCar extends Car {
     }
 
     public boolean checkOnRoad() {
-        if (Gridcol > Grid.MIDPOINT + SimModel.getVertLanes()) {
+        if (Gridcol > Grid.MIDPOINT + SimModel.getVertLanes() ||
+                Gridrow == SimModel.gridSize) {
             return false;
         }
         return true;
+    }
+
+    public void MoveForward() {
+        if (Lights.VLight().equals("G")) {                                              // If light is GREEN
+            this.moving = "GO";                                                             // GO
+            ++Gridrow;
+        } else {                                                                        // Else
+            if (Gridrow <= Grid.MIDPOINT - 1) {                                             // If before intersection
+                if (Grid.getGrid()[Gridrow + 1][Gridcol] instanceof Car                     // If there is a STOPPED car
+                        && Grid.getGrid()[Gridrow + 1][Gridcol].equals("STOPPED")
+                        || Gridrow == Grid.MIDPOINT - 1) {                                      // or at the intersection
+                    this.moving = "STOPPED";                                                        // STOP
+                } else {                                                                        // Else
+                    this.moving = "GO";                                                             // GO
+                    ++Gridrow;
+                }
+            } else {                                                                        // Else
+                this.moving = "GO";                                                             // GO
+                ++Gridrow;
+            }
+        }
     }
 
     public int[] loc() {

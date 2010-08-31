@@ -65,7 +65,7 @@ public class SimModel {
         return CarList;
     }
 
-    private static void CheckCars() {
+    public static void CheckCars() {
         ArrayList<Car> TempCars = new ArrayList<Car>();
         for (Car c : CarList) {
             if (c.checkOnRoad() == true) {

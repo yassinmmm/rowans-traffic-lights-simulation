@@ -178,7 +178,7 @@ public class Menu {
                 while (true) {
                     int rTimes = 0;
                     System.out.println("\nHow many simulation cycles?");
-                    System.out.println(">");
+                    System.out.print("> ");
                     input = scanner.next();
                     try {
                         rTimes = Integer.parseInt(input);
