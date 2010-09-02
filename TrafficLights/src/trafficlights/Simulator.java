@@ -44,6 +44,8 @@ public class Simulator {
             }
         }
 
+        result = rand.nextInt(100);
+
         if (result > (SimModel.getVProb() * 100)) {
             result = rand.nextInt(SimModel.getVertLanes());
             if (!(Grid.getGrid()[0][Grid.MIDPOINT + result] instanceof Car)) {

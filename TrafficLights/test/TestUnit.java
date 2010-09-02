@@ -9,7 +9,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import trafficlights.*;
 /**
  *
  * @author Confucius
@@ -40,12 +39,4 @@ public class TestUnit {
     //
     // @Test
     // public void hello() {}
-
-    @Test
-    public void TestSimulator() {
-        HorCar c = new HorCar();
-        c.setRowLoc(2);
-        SimModel.addCar(c);
-        Grid.ShowGrid();
-    }
 }

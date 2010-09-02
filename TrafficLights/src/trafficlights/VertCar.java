@@ -30,24 +30,44 @@ public class VertCar extends Car {
     }
 
     public void MoveForward() {
-        if (Lights.VLight().equals("G")) {                                              // If light is GREEN
-            this.moving = "GO";                                                             // GO
+        if (Lights.VLight().equals("G")) {                                          // If lights are green
+            this.moving = "GO";                                                         // GO
             ++Gridrow;
-        } else {                                                                        // Else
-            if (Gridrow <= Grid.MIDPOINT - 1) {                                             // If before intersection
-                if (Grid.getGrid()[Gridrow + 1][Gridcol] instanceof Car                     // If there is a STOPPED car
-                        && Grid.getGrid()[Gridrow + 1][Gridcol].equals("STOPPED")
-                        || Gridrow == Grid.MIDPOINT - 1) {                                      // or at the intersection
-                    this.moving = "STOPPED";                                                        // STOP
-                } else {                                                                        // Else
-                    this.moving = "GO";                                                             // GO
-                    ++Gridrow;
-                }
-            } else {                                                                        // Else
-                this.moving = "GO";                                                             // GO
-                ++Gridrow;
-            }
+            return;
         }
+
+        if (Gridrow == Grid.MIDPOINT - 1) {                                         // If at intersection
+            this.moving = "STOPPED";                                                    // STOP
+            return;
+        }
+
+        if (Gridrow < SimModel.gridSize - 1 // If before end of road
+                && Grid.getGrid()[Gridrow+1][Gridcol] instanceof Car          // If car infront & STOPPED
+                && Grid.getGrid()[Gridrow+1][Gridcol].equals("STOPPED")) {
+
+            if (!(Grid.getGrid()[Gridrow][Gridcol+1] instanceof Car)
+                    && Gridcol + 1 <= Grid.MIDPOINT + SimModel.getVertLanes()) { // Check if can change lanes down
+
+                this.moving = "STOPPED";                                           // Change lanes down
+                ++Gridcol;
+                return;
+            }
+
+//            if (!(Grid.getGrid()[Gridrow - 1][Gridcol] instanceof Car)
+//                    && Gridrow - 1 > Grid.MIDPOINT) {                           // Check if can change lanes up
+//
+//                this.moving = "STOPPED";                                           // Change lanes up
+//                --Gridrow;
+//                return;
+//            }
+
+            this.moving = "STOPPED";                                                // Otherwise STOP
+            return;
+        }
+
+        this.moving = "GO";                                                         // If lights are not Green, not at the intersection
+        ++Gridrow;                                                                  // , not a car that is stopped infront
+        // then move forwards
     }
 
     public int[] loc() {
