@@ -19,7 +19,7 @@ public abstract class Car {
 
     public abstract boolean checkOnRoad();
 
-    public abstract void MoveForward();
+    public abstract void Move();
 
     @Override
     public String toString() {

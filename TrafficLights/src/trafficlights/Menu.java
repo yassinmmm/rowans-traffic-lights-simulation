@@ -14,10 +14,19 @@ public class Menu {
 
     private static Scanner scanner = new Scanner(System.in);
     private static String input;
-    private static final int minVertLanes = 1;
-    private static final int maxVertLanes = 4;
-    private static final int minHorLanes = 1;
-    private static final int maxHorLanes = 3;
+
+    private static final byte MIN_VERT_LANES = 1;
+    private static final byte MAX_VERT_LANES = 4;
+    private static final byte MIN_HOR_LANES = 1;
+    private static final byte MAX_HOR__LANES = 3;
+    
+    private static final byte SET_HOR_LANES = 1;
+    private static final byte SET_VERT_LANES = 2;
+    private static final byte SET_HOR_PROB = 3;
+    private static final byte SET_VERT_PROB = 4;
+    private static final byte RUN_ONCE = 5;
+    private static final byte RUN_N_TIMES = 6;
+
 
     private static void setV_street() {
         input = "";
@@ -38,7 +47,7 @@ public class Menu {
                 break check_valid;
             }
 
-            if (number < minVertLanes || number > maxVertLanes) {
+            if (number < MIN_VERT_LANES || number > MAX_VERT_LANES) {
                 System.out.println("    There must be more than 1 lane and less than 4!");
             } else {
                 break set_v;
@@ -67,7 +76,7 @@ public class Menu {
                 break check_valid;
             }
 
-            if (number < minHorLanes || number > maxHorLanes) {
+            if (number < MIN_HOR_LANES || number > MAX_HOR__LANES) {
                 System.out.println("    There must be more than 1 lane and less than 3!");
             } else {
                 break set_h;
@@ -154,27 +163,27 @@ public class Menu {
         number = Integer.parseInt(input);
 
         switch (number) {
-            case 1: //1. Set Number of horizontal lanes
+            case SET_HOR_LANES: //1. Set Number of horizontal lanes
                 setH_street();
                 break;
 
-            case 2: //2. Set Number of vertical lanes
+            case SET_VERT_LANES: //2. Set Number of vertical lanes
                 setV_street();
                 break;
 
-            case 3: //3. Set Probability of a car entering H-street
+            case SET_HOR_PROB: //3. Set Probability of a car entering H-street
                 setH_prob();
                 break;
 
-            case 4: //4. Set Probability of a car entering V-street
+            case SET_VERT_PROB: //4. Set Probability of a car entering V-street
                 setV_prob();
                 break;
 
-            case 5: //5. Run one simulation cycle
+            case RUN_ONCE: //5. Run one simulation cycle
                 Simulator.Simulate(1);
                 break;
 
-            case 6: //6. Set and run number of simulation cycles
+            case RUN_N_TIMES: //6. Set and run number of simulation cycles
                 while (true) {
                     int rTimes = 0;
                     System.out.println("\nHow many simulation cycles?");

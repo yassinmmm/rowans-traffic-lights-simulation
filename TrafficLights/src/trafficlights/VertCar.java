@@ -23,13 +23,13 @@ public class VertCar extends Car {
 
     public boolean checkOnRoad() {
         if (Gridcol > Grid.MIDPOINT + SimModel.getVertLanes() ||
-                Gridrow == SimModel.gridSize) {
+                Gridrow == SimModel.GRID_SIZE) {
             return false;
         }
         return true;
     }
 
-    public void MoveForward() {
+    public void Move() {
         if (Lights.VLight().equals("G")) {                                          // If lights are green
             this.moving = "GO";                                                         // GO
             ++Gridrow;
@@ -41,25 +41,17 @@ public class VertCar extends Car {
             return;
         }
 
-        if (Gridrow < SimModel.gridSize - 1 // If before end of road
-                && Grid.getGrid()[Gridrow+1][Gridcol] instanceof Car          // If car infront & STOPPED
-                && Grid.getGrid()[Gridrow+1][Gridcol].equals("STOPPED")) {
+        if (Gridrow < SimModel.GRID_SIZE - 1                                     // If before end of road
+                && Grid.getGrid()[Gridrow + 1][Gridcol] instanceof Car          // If car infront & STOPPED
+                && Grid.getGrid()[Gridrow + 1][Gridcol].equals("STOPPED")) {
 
-            if (!(Grid.getGrid()[Gridrow][Gridcol+1] instanceof Car)
+            if (!(Grid.getGrid()[Gridrow][Gridcol + 1] instanceof Car)
                     && Gridcol + 1 <= Grid.MIDPOINT + SimModel.getVertLanes()) { // Check if can change lanes down
 
-                this.moving = "STOPPED";                                           // Change lanes down
+                this.moving = "STOPPED";                                           // Change lanes right
                 ++Gridcol;
                 return;
             }
-
-//            if (!(Grid.getGrid()[Gridrow - 1][Gridcol] instanceof Car)
-//                    && Gridrow - 1 > Grid.MIDPOINT) {                           // Check if can change lanes up
-//
-//                this.moving = "STOPPED";                                           // Change lanes up
-//                --Gridrow;
-//                return;
-//            }
 
             this.moving = "STOPPED";                                                // Otherwise STOP
             return;
@@ -67,7 +59,7 @@ public class VertCar extends Car {
 
         this.moving = "GO";                                                         // If lights are not Green, not at the intersection
         ++Gridrow;                                                                  // , not a car that is stopped infront
-        // then move forwards
+                                                                                    // then move forwards
     }
 
     public int[] loc() {

@@ -36,7 +36,7 @@ public class Simulator {
 
         int result = rand.nextInt(100);
 
-        if (result > (SimModel.getHprob() * 100)) {
+        if (result < (SimModel.getHprob() * 100)) {
             result = rand.nextInt(SimModel.getHorLanes());
             if (!(Grid.getGrid()[Grid.MIDPOINT + result][0] instanceof Car)) {
                 HorCar c = new HorCar(result);
@@ -46,7 +46,7 @@ public class Simulator {
 
         result = rand.nextInt(100);
 
-        if (result > (SimModel.getVProb() * 100)) {
+        if (result < (SimModel.getVProb() * 100)) {
             result = rand.nextInt(SimModel.getVertLanes());
             if (!(Grid.getGrid()[0][Grid.MIDPOINT + result] instanceof Car)) {
                 VertCar c = new VertCar(result);
@@ -57,7 +57,7 @@ public class Simulator {
 
     private static void MoveCars() {
         for (Car c : SimModel.getCarList()) {
-            c.MoveForward();
+            c.Move();
         }
     }
 }

@@ -26,17 +26,17 @@ public class Lights {
         if (tick < 6) {
             HState = "G";
             VState = "R";
-        } else if (tick < 12) {
+        } else if (tick < 11) {
             HState = "O";
             VState = "R";
-        } else if (tick < 17) {
+        } else if (tick < 16) {
             HState = "R";
             VState = "G";
-        } else if (tick < 22) {
+        } else if (tick < 21) {
             HState = "R";
             VState = "O";
-        } else if (tick >= 22) {
-            tick = 1;
+        } else {
+            tick = 0;
         }
         ++tick;
     }
