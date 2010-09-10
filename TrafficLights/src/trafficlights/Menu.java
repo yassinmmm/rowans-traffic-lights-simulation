@@ -145,7 +145,7 @@ public class Menu {
     }
 
     /**
-     * @param args the command line arguments
+     * Main menu to get the users input
      */
     public static void Menu() {
         input = "";

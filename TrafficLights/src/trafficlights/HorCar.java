@@ -12,6 +12,10 @@ import java.util.Random;
  */
 public class HorCar extends Car {
 
+    /**
+     *
+     * @param lane Which lane to spawn the car in
+     */
     public HorCar(int lane) {
         Gridcol = 0;
 

@@ -14,6 +14,10 @@ import java.util.logging.Logger;
  */
 public class Simulator {
 
+    /**
+     *
+     * @param numTimes Number of times to simulate
+     */
     public static void Simulate(int numTimes) {
         for (int i = 0; i < numTimes; ++i) {
             DoPossibleCars();

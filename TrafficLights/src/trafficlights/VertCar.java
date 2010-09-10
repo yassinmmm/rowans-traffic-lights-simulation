@@ -11,6 +11,10 @@ import java.util.Random;
  * @author jc223892
  */
 public class VertCar extends Car {
+    /**
+     *
+     * @param lane Which lane to spawn the car in
+     */
     public VertCar(int lane) {
         Gridrow = 0;
 

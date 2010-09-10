@@ -14,14 +14,26 @@ public class Lights {
     private static String VState;
     private static int tick = 1;
 
+    /**
+     *
+     * @return The current state (color) of the horizontal light
+     */
     public static String HLight() {
         return HState;
     }
 
+    /**
+     *
+     * @return The current state (color) of the vertical light
+     */
     public static String VLight() {
         return VState;
     }
 
+    /**
+     * Cycles through the lights color pattern
+     * Each tick increments the cycle by one
+     */
     public static void tick() {
         if (tick < 6) {
             HState = "G";

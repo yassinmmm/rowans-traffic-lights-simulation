@@ -10,16 +10,26 @@ package trafficlights;
  */
 public class Grid {
 
+    /**
+     * Grid class responsible for placing and displaying all objects
+     */
     public static final int MIDPOINT = SimModel.GRID_SIZE / 2;
     private static Object[][] grid = new Object[SimModel.GRID_SIZE][SimModel.GRID_SIZE];
 
     private static final byte HLIGHT_OFFSET = 4;
     private static final byte VLIGHT_OFFSET = 2;
 
+    /**
+     *
+     * @return returns the grid itself
+     */
     public static Object[][] getGrid() {
         return grid;
     }
 
+    /**
+     * Displays the grid onto the screen
+     */
     public static void ShowGrid() {
         setBorders();
         PlaceDynamics();

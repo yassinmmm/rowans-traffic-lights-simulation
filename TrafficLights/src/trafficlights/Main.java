@@ -9,6 +9,10 @@ package trafficlights;
  * @author Confucius
  */
 public class Main {
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
         while (true) {
