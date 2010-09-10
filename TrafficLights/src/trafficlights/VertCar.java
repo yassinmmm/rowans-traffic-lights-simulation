@@ -4,11 +4,10 @@
  */
 package trafficlights;
 
-import java.util.Random;
 
 /**
  *
- * @author jc223892
+ * @author Confucius
  */
 public class VertCar extends Car {
     /**

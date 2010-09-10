@@ -156,7 +156,7 @@ public class Menu {
                 + "3. Set Probability of a car entering H-street [min 0, max 1]\n"
                 + "4. Set Probability of a car entering V-street [min 0, max 1]\n"
                 + "5. Run one simulation cycle\n"
-                + "6. Set and run number of simulation cycles [min 1, max 10]\n\n"
+                + "6. Set and run number of simulation cycles\n\n"
                 + "Enter your choice > ");
 
         input = scanner.next();

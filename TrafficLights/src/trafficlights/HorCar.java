@@ -4,7 +4,6 @@
  */
 package trafficlights;
 
-import java.util.Random;
 
 /**
  *
