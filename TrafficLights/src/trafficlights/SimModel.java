@@ -14,7 +14,7 @@ public class SimModel {
 
     private static int HorLanes = 2;
     private static int VertLanes = 2;
-    private static double HProb = 0.5;
+    private static double HProb = 0.55;
     private static double VProb = 0.4;
     private static ArrayList<Car> CarList = new ArrayList<Car>();
     /**

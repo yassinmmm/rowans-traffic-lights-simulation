@@ -40,21 +40,27 @@ public class Simulator {
 
         int result = rand.nextInt(100);
 
-        if (result < (SimModel.getHprob() * 100)) {
-            result = rand.nextInt(SimModel.getHorLanes());
-            if (!(Grid.getGrid()[Grid.MIDPOINT + result][0] instanceof Car)) {
-                HorCar c = new HorCar(result);
-                SimModel.addCar(c);
+        if (result <= (SimModel.getHprob() * 100)) {
+            while (true) {
+                result = rand.nextInt(SimModel.getHorLanes());
+                if (!(Grid.getGrid()[Grid.MIDPOINT + result][0] instanceof Car)) {
+                    HorCar c = new HorCar(result);
+                    SimModel.addCar(c);
+                    break;
+                }
             }
         }
 
         result = rand.nextInt(100);
 
-        if (result < (SimModel.getVProb() * 100)) {
-            result = rand.nextInt(SimModel.getVertLanes());
-            if (!(Grid.getGrid()[0][Grid.MIDPOINT + result] instanceof Car)) {
-                VertCar c = new VertCar(result);
-                SimModel.addCar(c);
+        if (result <= (SimModel.getVProb() * 100)) {
+            while (true) {
+                result = rand.nextInt(SimModel.getVertLanes());
+                if (!(Grid.getGrid()[0][Grid.MIDPOINT + result] instanceof Car)) {
+                    VertCar c = new VertCar(result);
+                    SimModel.addCar(c);
+                    break;
+                }
             }
         }
     }
