@@ -17,6 +17,7 @@ public class SimModel {
     private static double HProb = 0.55;
     private static double VProb = 0.4;
     private static ArrayList<Car> CarList = new ArrayList<Car>();
+    public static final int LIGHTS_TICK_RATE = 8;
     /**
      * Determines the overall size of the Grid/Simulation
      */

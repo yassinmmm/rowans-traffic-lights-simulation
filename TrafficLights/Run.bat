@@ -3,7 +3,7 @@ cls
 
 color A
 
-set path = "C:\Program Files (x86)\Java\jre6\bin"
-path = "C:\Program Files (x86)\Java\jre6\bin"
+set path = "D:\Program Files\Java\jdk1.6.0_21\bin"
+path = "D:\Program Files\Java\jdk1.6.0_21\bin"
 
 java -jar ".\dist\TrafficLights.jar"

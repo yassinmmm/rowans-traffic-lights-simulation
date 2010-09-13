@@ -13,7 +13,6 @@ import java.util.logging.Logger;
  * @author Confucius
  */
 public class Simulator {
-
     /**
      *
      * @param numTimes Number of times to simulate
@@ -21,7 +20,7 @@ public class Simulator {
     public static void Simulate(int numTimes) {
         for (int i = 0; i < numTimes; ++i) {
             DoPossibleCars();
-            Lights.tick();
+            Lights.tick(SimModel.LIGHTS_TICK_RATE);
             Grid.ShowGrid();
             MoveCars();
             SimModel.CheckCars();
@@ -37,31 +36,30 @@ public class Simulator {
 
     private static void DoPossibleCars() {
         Random rand = new Random();
-
         int result = rand.nextInt(100);
 
         if (result <= (SimModel.getHprob() * 100)) {
-            while (true) {
-                result = rand.nextInt(SimModel.getHorLanes());
-                if (!(Grid.getGrid()[Grid.MIDPOINT + result][0] instanceof Car)) {
-                    HorCar c = new HorCar(result);
-                    SimModel.addCar(c);
-                    break;
-                }
-            }
+            //while (true) {
+            //result = rand.nextInt(SimModel.getHorLanes());
+            //if (!(Grid.getGrid()[Grid.MIDPOINT + result][0] instanceof Car)) {
+            HorCar c = new HorCar();
+            SimModel.addCar(c);
+            //break;
+            //}
+            //}
         }
 
-        result = rand.nextInt(100);
+        //result = rand.nextInt(100);
 
         if (result <= (SimModel.getVProb() * 100)) {
-            while (true) {
-                result = rand.nextInt(SimModel.getVertLanes());
-                if (!(Grid.getGrid()[0][Grid.MIDPOINT + result] instanceof Car)) {
-                    VertCar c = new VertCar(result);
-                    SimModel.addCar(c);
-                    break;
-                }
-            }
+            //while (true) {
+            //result = rand.nextInt(SimModel.getVertLanes());
+            //if (!(Grid.getGrid()[0][Grid.MIDPOINT + result] instanceof Car)) {
+            VertCar c = new VertCar(result);
+            SimModel.addCar(c);
+            //break;
+            //}
+            //}
         }
     }
 

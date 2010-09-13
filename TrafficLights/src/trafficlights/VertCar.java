@@ -4,6 +4,8 @@
  */
 package trafficlights;
 
+import java.util.Random;
+
 
 /**
  *
@@ -16,8 +18,9 @@ public class VertCar extends Car {
      */
     public VertCar(int lane) {
         Gridrow = 0;
+        Random rand = new Random();
 
-        setColLoc(lane);
+        setColLoc(rand.nextInt(SimModel.getVertLanes()));
     }
 
     private void setColLoc(int c) {

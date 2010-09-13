@@ -33,18 +33,20 @@ public class Lights {
     /**
      * Cycles through the lights color pattern
      * Each tick increments the cycle by one
+     * @param rate The rate at which the lights change color.
+     * (each rate = 1 car)
      */
-    public static void tick() {
-        if (tick < 6) {
+    public static void tick(int rate) {
+        if (tick < rate) {
             HState = "G";
             VState = "R";
-        } else if (tick < 11) {
+        } else if (tick < rate * 2) {
             HState = "O";
             VState = "R";
-        } else if (tick < 17) {
+        } else if (tick < rate * 3) {
             HState = "R";
             VState = "G";
-        } else if (tick < 23) {
+        } else if (tick < rate * 4) {
             HState = "R";
             VState = "O";
         } else {

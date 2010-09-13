@@ -4,6 +4,8 @@
  */
 package trafficlights;
 
+import java.util.Random;
+
 
 /**
  *
@@ -15,10 +17,11 @@ public class HorCar extends Car {
      *
      * @param lane Which lane to spawn the car in
      */
-    public HorCar(int lane) {
+    public HorCar() {
         Gridcol = 0;
+        Random rand = new Random();
 
-        setRowLoc(lane);
+        setRowLoc(rand.nextInt(SimModel.getHorLanes()));
     }
 
     private void setRowLoc(int r) {
